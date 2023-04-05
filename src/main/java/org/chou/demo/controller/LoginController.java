@@ -8,6 +8,7 @@ import org.chou.demo.context.AppContext;
 import org.chou.demo.model.LoginModel;
 import org.chou.demo.view.MainView;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 
 import de.felixroske.jfxsupport.FXMLController;
 import javafx.event.ActionEvent;
@@ -47,8 +48,7 @@ public class LoginController implements Initializable{
 	public void login(ActionEvent actionEvent) {
 		String usernameStr = username.getText();
 		String passwordStr = password.getText();
-		
-		if ("zhao.jiahong".endsWith(usernameStr) && "zhao.jiahong".endsWith(passwordStr)) {
+		if (!StringUtils.isEmpty(usernameStr) && !StringUtils.isEmpty(passwordStr)) {
 			LoginModel loginModel = new LoginModel();
 			loginModel.setUsername(usernameStr);
 			loginModel.setPassword(passwordStr);
